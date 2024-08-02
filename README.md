@@ -8,6 +8,6 @@ A simple Writing page with word and character count for my morning writing routi
 ## Todo
 
 - [x] Add domain
-- [ ] Fix UI
-- [ ] Maybe add a send it to me button
+- [x] Fix UI
+- [x] Maybe add a copy button
 - [ ] Go and do other stuff. This app is done!
