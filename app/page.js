@@ -7,7 +7,7 @@ import { GithubIcon } from "../components/Icons";
 
 export default function Home() {
   return (
-    <>
+    <div className="flex flex-col h-screen">
     <main className="flex min-h-screen flex-col items-center justify-between p-4">
       <div className="z-10 max-w-5xl w-full flex flex-col items-center justify-between font-mono text-sm h-full lg:flex-row">
         <div className="flex flex-col h-full w-full">          
@@ -27,6 +27,6 @@ export default function Home() {
         </div>
       </div>
     </main>
-    </>
+    </div>
   );
 }

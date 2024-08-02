@@ -5,7 +5,7 @@
 */
 'use client'; 
 
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Textarea } from "@/components/ui/textarea"
 import { Button } from "@/components/ui/button"
 import { CopyIcon } from "@/components/icons"
@@ -16,6 +16,18 @@ const Writer = () => {
   const [text, setText] = useState('');
   const [wordCount, setWordCount] = useState(0);
   const [charCount, setCharCount] = useState(0);
+  const [viewportHeight, setViewportHeight] = useState(0);
+
+  useEffect(() => {
+    const updateViewportHeight = () => {
+      setViewportHeight(window.innerHeight);
+    };
+
+    updateViewportHeight();
+    window.addEventListener('resize', updateViewportHeight);
+    
+    return () => window.removeEventListener('resize', updateViewportHeight);
+  }, []);
 
   const handleChange = (e) => {
     const newText = e.target.value;
@@ -40,6 +52,7 @@ const Writer = () => {
             value={text}
             onChange={handleChange}
             className="w-full flex-1 resize-none p-4 rounded-lg border border-input focus:border-primary focus:ring-1 focus:ring-primary"
+            style={{ height: `calc(${viewportHeight}px - 160px)` }}
             />
         </div>
         <div className="bg-muted px-6 py-4 flex justify-between items-center border-t">
