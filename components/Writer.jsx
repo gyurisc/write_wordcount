@@ -17,6 +17,7 @@ const Writer = () => {
   const [wordCount, setWordCount] = useState(0);
   const [charCount, setCharCount] = useState(0);
   const [viewportHeight, setViewportHeight] = useState(0);
+  const [timeOfDay, setTimeOfDay] = useState('Morning');
 
   useEffect(() => {
     const updateViewportHeight = () => {
@@ -25,7 +26,17 @@ const Writer = () => {
 
     updateViewportHeight();
     window.addEventListener('resize', updateViewportHeight);
-    
+  
+    const currentHour = new Date().getHours();
+
+    if (currentHour < 12) {
+      setTimeOfDay('Morning');
+    } else if (currentHour < 18) {
+      setTimeOfDay('Afternoon');
+    } else {
+      setTimeOfDay('Evening');
+    }
+        
     return () => window.removeEventListener('resize', updateViewportHeight);
   }, []);
 
@@ -57,7 +68,7 @@ const Writer = () => {
         </div>      
         <div className="flex-1 pt-2 pb-2 flex flex-col">
           <Textarea
-            placeholder="Good Morning! Start Writing..."
+            placeholder={`Good ${timeOfDay}! Let's start Writing. Once you are done click the copy button to copy the text.`}
             value={text}
             onChange={handleChange}
             className="w-full flex-1 resize-none p-4 rounded-lg border border-input focus:border-primary focus:ring-1 focus:ring-primary"
