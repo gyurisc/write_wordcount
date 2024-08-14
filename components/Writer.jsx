@@ -17,7 +17,7 @@ const Writer = () => {
   const [charCount, setCharCount] = useState(0);
   const [viewportHeight, setViewportHeight] = useState(0);
   const [timeOfDay, setTimeOfDay] = useState('Morning');
-  const [textareaHeight, setTextareaHeight] = useState(10)
+
 
   useEffect(() => {
     // const updateViewportHeight = () => {
@@ -40,10 +40,6 @@ const Writer = () => {
     // return () => window.removeEventListener('resize', updateViewportHeight);
   }, []);
 
-  const handleResize = (event) => {
-    setTextareaHeight(Math.max(10, event.target.scrollHeight))
-  }
-
   const handleChange = (e) => {
     const newText = e.target.value;
     setText(newText);
@@ -51,9 +47,6 @@ const Writer = () => {
     setWordCount(newText.trim().split(/\s+/).filter(word => word.length > 0).length);
   };
 
-  const handleBlur = (event) => {
-    setTextareaHeight(Math.max(15, event.target.scrollHeight))
-  };
 
   const handleCopy = async () => {
     try {
@@ -79,9 +72,6 @@ const Writer = () => {
             placeholder={`Good ${timeOfDay}! Let's start Writing. Once you are done click the copy button to copy the text.`}
             value={text}
             onChange={handleChange}
-            onInput={handleResize}
-            onBLur={handleBlur}
-            rows={textareaHeight}
             className="w-full flex-1 sm:max-h-none sm:rows-auto resize-none p-4 rounded-lg border border-input focus:border-primary focus:ring-1 focus:ring-primary"
             style={{ height: `calc(${viewportHeight}px - 160px)` }}
             />
