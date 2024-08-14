@@ -70,11 +70,19 @@ const Writer = () => {
             placeholder={`Good ${timeOfDay}! Let's start Writing. Once you are done click the copy button to copy the text.`}
             value={text}
             onChange={handleChange}
-            className="w-full flex-1 resize-none p-4 rounded-lg border border-input focus:border-primary focus:ring-1 focus:ring-primary"
+            className="w-full flex-1 sm:max-h-none sm:rows-auto resize-none p-4 rounded-lg border border-input focus:border-primary focus:ring-1 focus:ring-primary"
             style={{ height: `calc(${viewportHeight}px - 160px)` }}
             />
         </div>
-
+        <div className="bg-muted px-6 py-4 flex justify-between items-center border-t">
+          <div className="text-sm text-muted-foreground">
+            <span id="word-count">{wordCount}</span> words, <span id="char-count">{charCount}</span> characters
+          </div>
+          <Button variant="ghost" size="icon" className="ml-auto" onClick={handleCopy}>
+            <CopyIcon className="h-5 w-5" />
+            <span className="sr-only">Share to email</span>
+          </Button>
+        </div>      
       </>
     );
 }
