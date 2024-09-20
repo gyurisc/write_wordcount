@@ -58,7 +58,7 @@ const Writer = () => {
 
   return (
       <>
-        <div className="bg-muted px-6 py-4 flex justify-between items-center border-t">
+        <div className="bg-muted px-2 py-2 flex justify-between items-center border-t">
           <div className="text-sm text-muted-foreground">
             <span id="word-count">{wordCount}</span> words, <span id="char-count">{charCount}</span> characters
           </div>
