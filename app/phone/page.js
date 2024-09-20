@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react'
 import { Textarea } from "@/components/ui/textarea"
 
-export default function Phone() {
+export default function Component() {
   const [text, setText] = useState('')
   const [wordCount, setWordCount] = useState(0)
   const [charCount, setCharCount] = useState(0)
@@ -25,7 +25,7 @@ export default function Phone() {
       <div className="flex-grow p-4 pb-40 sm:pb-4">
         <Textarea 
           placeholder="Start typing here..." 
-          className="w-full h-full min-h-[12rem] sm:min-h-0 resize-none"
+          className="w-full h-full min-h-[14lh] sm:min-h-0 resize-none leading-normal"
           value={text}
           onChange={(e) => setText(e.target.value)}
         />
