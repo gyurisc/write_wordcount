@@ -22,13 +22,14 @@ export default function Component() {
           <span>Characters: {charCount}</span>
         </div>
       </div>
-      <div className="flex-grow p-4 pt-16 pb-40 sm:pb-4 max-w-screen-xl mx-auto w-full">
-        <div className="h-full">
+      <div className="flex-grow p-4 pt-16 pb-40 sm:pb-4 w-full max-w-screen-xl mx-auto">
+        <div className="h-full w-full">
           <Textarea 
             placeholder="Start typing here..." 
-            className="w-full h-[14lh] sm:h-full min-h-[14lh] resize-none leading-normal"
+            className="w-full h-[14lh] sm:h-full min-h-[14lh] resize-none leading-normal overflow-x-hidden"
             value={text}
             onChange={(e) => setText(e.target.value)}
+            style={{ boxSizing: 'border-box', width: '100%' }}
           />
         </div>
       </div>
