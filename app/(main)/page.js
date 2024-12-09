@@ -1,9 +1,9 @@
 import Image from "next/image";
-import Writer from "../components/Writer";
+import Writer from "../../components/Writer";
 import Link from "next/link";
-import { GlobeIcon } from "../components/Icons";
-import { TwitterIcon } from "../components/Icons";
-import { GithubIcon } from "../components/Icons";
+import { GlobeIcon } from "../../components/Icons";
+import { TwitterIcon } from "../../components/Icons";
+import { GithubIcon } from "../../components/Icons";
 
 export default function Home() {
   return (
