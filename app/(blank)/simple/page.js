@@ -16,7 +16,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
-      <header className="p-4 flex justify-between items-center fixed top-0 left-0 w-full z-10 bg-white/75 dark:bg-gray-800/75 backdrop-blur-sm shadow-sm">
+      <header className="p-4 flex justify-between items-center fixed top-0 left-0 w-full z-10 bg-white dark:bg-gray-800 shadow-sm">
         <Pen className="h-6 w-6 text-gray-600 dark:text-gray-300" />
         <div className="flex items-center gap-2">
           <span className="text-sm text-muted-foreground">{wordCount} words</span>
